@@ -180,7 +180,7 @@ function App() {
 					<h1>HEY, I'M Alexander Larsson</h1>
 					<p>A Game programmer Specialised in C# and C++</p>
 					<a
-						href="/Resume.pdf" 
+						href="Resume.pdf" 
 						download="Alexander_Larsson_CV.pdf" 
 						target="_blank"
 						rel="noopener noreferrer"

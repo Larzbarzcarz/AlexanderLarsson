@@ -8,7 +8,7 @@ import InputField from '../common/components/InputField/InputField';
 import TextAreaField from '../common/components/TextAreaField/TextAreaField';
 import SubmitButton from '../common/components/SubmitButton/SubmitButton';
 import Loader from '../common/components/Loader/Loader';
-import cv from '../assets/files/Resume.pdf';
+
 
 // import icons
 import { FaReact } from "react-icons/fa";
@@ -180,8 +180,8 @@ function App() {
 					<h1>HEY, I'M Alexander Larsson</h1>
 					<p>A Game programmer Specialised in C# and C++</p>
 					<a
-						href={cv}
-						download="cv-PDF-document"
+						href="/Resume.pdf" 
+						download="Alexander_Larsson_CV.pdf" 
 						target="_blank"
 						rel="noopener noreferrer"
 					>

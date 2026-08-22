@@ -225,9 +225,12 @@ function App() {
 
 							<h3>Get to know me!</h3>
 							<p>
-								I'm a <span>Frontend Web Developer</span> building the Front-end of Websites and Web Applications that leads to the success of the overall product. Check out some of my work in the <span>Projects</span> section. <br /> <br />
-								I also like sharing content related to the stuff that I have learned over the years in <span>Web Development</span> so it can help other people of the Dev Community. Feel free to Connect or Follow me on my <a href="https://www.linkedin.com/in/alexander-larsson-/" target="_blank">Linkedin</a> where I post useful content related to Web Development and Programming. <br /> <br />
-								I'm open to <span>Job</span> opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to <span>contact</span> me.
+								I'm a <span>Game Programmer</span> focused on building efficient gameplay systems, mechanics, and interactive experiences that bring virtual worlds to life. Check out some of my work in the <span>Projects</span> section. <br /> <br />
+
+I also enjoy breaking down complex systems and sharing knowledge related to the things I've learned over the years in <span>Game Development</span> to help and inspire others in the gamedev community. Feel free to Connect or Follow me on my <a href="https://www.linkedin.com/in/alexander-larsson-/" target="_blank">Linkedin</a> where I post updates about my programming journey and engineering insights. <br /> <br />
+
+I'm actively looking for <span>Job</span> opportunities where I can apply my skills in <span>C# and C++</span> to contribute to exciting game projects, learn from experienced teams, and grow as an engineer. If you have an opportunity that matches my profile, don't hesitate to <span>contact</span> me.
+
 							</p>
 						</div>
 						<div className={style["my-skill"]}>

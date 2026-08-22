@@ -4,8 +4,8 @@ import svgr from '@svgr/rollup';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/AlexanderLarsson/', 
   build: {
-  
     cssMinify: false 
   }
 })

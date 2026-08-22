@@ -74,7 +74,7 @@ const projects = [
 		name: 'TrashBashers',
 		link: 'https://futuregames.itch.io/trash-bashers',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/ZWW2AQ1W',
-		description: 'TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups.',
+		description: 'TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups. For this game i developed all the gameplay systems that complimented the game, Timer, Scoring System, Pickups, Menus, endscreen,',
 		image: TrashBashers
 	},
 	{

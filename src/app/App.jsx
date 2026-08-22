@@ -26,7 +26,7 @@ import {  TbBrandCSharp } from "react-icons/tb";
 import TrashBashers from '../assets/images/TrashBashers.png';
 import Evilutions from '../assets/images/Evilutions.png';
 import FriendoAI from '../assets/images/FriendoAI.png';
-import OverBrewing from '../assets/images/OverBrewing.png';
+import overbrewing from '../assets/images/Overbrewing.png';
 import LogoImage1 from '../assets/images/cplus_icon.png';
 import LogoImage2 from '../assets/images/csharp_icon.png';
 import ProfileImage from '../assets/images/Profil.jpg';
@@ -89,7 +89,7 @@ const projects = [
 		link: 'https://futuregames.itch.io/overbrewed',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/gYz6Dr9t',
 		description: 'OverBrewed is a co.op game that takes place in a fantasy potion shop. Where the roles are split in to two, a potion seller and the one crafting the potions. With a heavy emphasis on communication',
-		image: OverBrewing
+		image: overbrewing
 	},
 	{
 		name: 'FriendoAI',

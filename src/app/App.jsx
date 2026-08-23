@@ -81,14 +81,18 @@ const projects = [
 		name: `Evilution`,
 		link: 'https://futuregames.itch.io/evillution',
 		github: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting',
-		description: "Evilution is a phone game that was designed around the touch capability of phones with a simplistic turn based battler with a potion crafting system.",
+		description: "Evilution is a phone game that was designed around the touch capability of phones with a simplistic turn based battler with a potion crafting system. That I was the lead programmer that directed the code development, Made the\n" +
+			"Turnbased combat, Camera system, Level swapping",
 		image: Evilutions
 	},
 	{
 		name: 'OverBrewed',
 		link: 'https://futuregames.itch.io/overbrewed',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/gYz6Dr9t',
-		description: 'OverBrewed is a co.op game that takes place in a fantasy potion shop. Where the roles are split in to two, a potion seller and the one crafting the potions. With a heavy emphasis on communication',
+		description: 'OverBrewed is a co.op game that takes place in a fantasy potion shop. Where the roles are split in to two, a potion seller and the one crafting the potions. With a heavy emphasis on communication I developed the NPC system to let the store vendor allow to serve\n' +
+			'customers. That would walk in and walk out and stand in a line.\n' +
+			'And player movement, And then the potion holder when crafting, A\n' +
+			'animation that would play out when the player is crafting a potion',
 		image: overbrewing
 	},
 	{

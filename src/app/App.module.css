@@ -288,6 +288,7 @@
 .contactNav {
     display: flex;
     transition: all 0.4s ease-in-out; 
+}
 .topbar {
     position: static;
     flex-direction: row; 
@@ -331,7 +332,7 @@
     position: relative;
     width: var(--sizeX);
     height: var(--sizeY);
-    margin-left: var(sizeX / 2);
+    margin-left: var(--sizeX / 2);
     border: calc(var(--sizeX) / 10) solid var(--color);
     border-radius: 50px;
     box-sizing: border-box;

@@ -285,17 +285,36 @@
     z-index: 3;
 }
 
-.contact-nav {
-    position: absolute;
+.contactNav {
+    display: flex;
+    transition: all 0.4s ease-in-out; /* Gör förflyttningen mjuk och snygg */
+}
+.topbar {
+    position: static; /* Ligger kvar på sin naturliga plats i navbaren */
+    flex-direction: row; /* Lägger ikonerna på en vågrät rad */
+    gap: 15px; /* Mellanrum mellan ikonerna */
+    background-color: transparent;
+    box-shadow: none;
+    margin-left: 20px; /* Skapar avstånd från ditt namn */
+}
+.contactNav a svg {
+    transition: transform 0.2s;
+}
+.contactNav a:hover svg {
+    transform: scale(1.1); /* Gör att ikonerna förstoras lite när man hovrar */
+}
+.sidebar {
+    position: fixed; /* Låser fast menyn på skärmen */
+    top: 40%; /* Placerar den en bit ner från toppen */
     left: 0;
     width: 50px;
-    display: flex;
+    flex-direction: column; /* Lägger ikonerna på en lodrät rad */
     align-items: center;
-    flex-direction: column;
     background-color: white;
-    box-shadow: 0 0 10px #ddd;
-    border-radius: 5px;
-    z-index: 3;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 5px 5px 0; /* Rundar hörnen på höger sida */
+    padding: 10px 0;
+    z-index: 999; /* Lägger den ovanpå allt annat innehåll */
 }
 
 .scroll-down {

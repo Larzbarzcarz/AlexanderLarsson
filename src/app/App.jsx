@@ -109,6 +109,22 @@ function App() {
 	const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
 	const handleVideoEnd = () => { setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoList.length); };
+	const [isScrolled, setIsScrolled] = useState(false);
+
+
+useEffect(() => {
+    const handleScroll = () => {
+        // Om man skrollat mer än 100 pixlar ner på sidan, sätt till true
+        if (window.scrollY > 100) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -139,6 +155,17 @@ function App() {
         </div>
         <h5>Alexander Larsson</h5>
     </a>
+	    <div className={`${style.contactNav} ${isScrolled ? style.sidebar : style.topbar}`}>
+        <a className={style.github} target="_blank" href='https://github.com'>
+            <AiFillGithub size="30px" color='black' />
+        </a>
+        <a className={style.linkedin} target="_blank" href='https://linkedin.com'>
+            <AiFillLinkedin size="30px" color='black' />
+        </a>
+        <a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@://gmail.com">
+            <BiLogoGmail size="30px" color='black' />
+        </a>
+    </div>
     <ul>
 					<li><a href="#Home">Home</a></li>
 					<li><a href="#About">About</a></li>
@@ -198,18 +225,7 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className={style["contact-nav"]}>
-					<a className={style.github} target="_blank" href='https://github.com/Larzbarzcarz' >
-						<AiFillGithub size="30px" color='black' />
-					</a>
-					<a className={style.linkedin} target="_blank" href='https://www.linkedin.com/in/alexander-larsson-/' >
-						<AiFillLinkedin size="30px" color='black' />
-					</a>
-					<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@://gmail.com" >
-						<BiLogoGmail size="30px" color='black' />
-					</a>
-				</div>
-			</div>
+				
 
 			{/* About */}
 			<div id='About' className={style.about}>

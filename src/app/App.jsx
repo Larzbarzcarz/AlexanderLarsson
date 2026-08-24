@@ -429,6 +429,8 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 				</div>
 			</div>
 		</div>
-
+		);
+}
 
 export default App;
+

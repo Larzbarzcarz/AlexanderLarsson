@@ -257,6 +257,7 @@ useEffect(() => {
 						</div>
 					</div>
 				</div>
+				</div>
 				
 
 			{/* About */}
@@ -398,9 +399,8 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 					</form>
 				</div>
 			</div>
-			</div>
 
-			{/* footer */}
+	{/* footer */}
 			<div className={style.footer}>
 				<div className={style.container}>
 					<div className={style["footer-info"]}>
@@ -411,20 +411,19 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 						<div className={style.social}>
 							<h3>Social</h3>
 							<div className="">
-								<a className={style.git} target="_blank" href='https://github.com/Larzbarzcarz' >
+								<a className={style.git} target="_blank" href='https://github.com' rel="noreferrer">
 									<AiFillGithub size="30px" color='white' />
 								</a>
-								<a className={style.linkedin} target="_blank" href='https://www.linkedin.com/in/alexander-larsson-/' >
+								<a className={style.linkedin} target="_blank" href='https://linkedin.com' rel="noreferrer">
 									<AiFillLinkedin size="30px" color='white' />
 								</a>
-								<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@gmail.com?subject=SendMail&body=Description" >
+								<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@://gmail.com" rel="noreferrer">
 									<BiLogoGmail size="30px" color='white' />
 								</a>
-								
 							</div>
 						</div>
 					</div>
-										<div className={style["copy-right"]}>
+					<div className={style["copy-right"]}>
 						© Copyright 2026. Made by <span>Alexander Larsson</span>
 					</div>
 				</div>

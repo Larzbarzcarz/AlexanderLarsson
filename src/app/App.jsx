@@ -158,18 +158,26 @@ useEffect(() => {
             </div>
         </div>
         <h5>Alexander Larsson</h5>
-    </a>
-	    <div className={`${style.contactNav} ${isScrolled ? style.sidebar : style.topbar}`}>
-        <a className={style.github} target="_blank" href='https://github.com'>
-            <AiFillGithub size="30px" color='black' />
-        </a>
-        <a className={style.linkedin} target="_blank" href='https://linkedin.com'>
-            <AiFillLinkedin size="30px" color='black' />
-        </a>
-        <a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@://gmail.com">
-            <BiLogoGmail size="30px" color='black' />
-        </a>
-    </div>
+    </a><div 
+					className={style.contactNav} 
+					style={{ 
+						opacity: isScrolled ? 0 : 1, 
+						pointerEvents: isScrolled ? 'none' : 'auto',
+						flexDirection: 'row',
+						gap: '15px',
+						marginLeft: '20px'
+					}}
+				>
+					<a className={style.github} target="_blank" href='https://github.com'>
+						<AiFillGithub size="30px" color='black' />
+					</a>
+					<a className={style.linkedin} target="_blank" href='https://linkedin.com'>
+						<AiFillLinkedin size="30px" color='black' />
+					</a>
+					<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@gmail.com">
+						<BiLogoGmail size="30px" color='black' />
+					</a>
+				</div>
     <ul>
 					<li><a href="#Home">Home</a></li>
 					<li><a href="#About">About</a></li>
@@ -183,7 +191,27 @@ useEffect(() => {
 						<div className={`${style.bars} ${style.bar5}`}></div>
 						<div className={`${style.bars} ${style.bar6}`}></div>
 					</label>
+					
 				</div>
+			</div>
+			<div 
+				className={`${style.contactNav} ${style.sidebar}`} 
+				style={{ 
+					opacity: isScrolled ? 1 : 0, 
+					pointerEvents: isScrolled ? 'auto' : 'none',
+					transform: isScrolled ? 'translateX(0)' : 'translateX(-50px)',
+					transition: 'all 0.3s ease-in-out'
+				}}
+			>
+				<a className={style.github} target="_blank" href='https://github.com/Larzbarzcarz'>
+					<AiFillGithub size="30px" color='black' />
+				</a>
+				<a className={style.linkedin} target="_blank" href='https://www.linkedin.com/in/alexander-larsson-/'>
+					<AiFillLinkedin size="30px" color='black' />
+				</a>
+				<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@gmail.com">
+					<BiLogoGmail size="30px" color='black' />
+				</a>
 			</div>
 			{
 				menu === true &&

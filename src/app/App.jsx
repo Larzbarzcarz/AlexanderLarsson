@@ -168,10 +168,10 @@ useEffect(() => {
 						marginLeft: '20px'
 					}}
 				>
-					<a className={style.github} target="_blank" href='https://github.com'>
+					<a className={style.github} target="_blank" href='https://github.com/Larzbarzcarz'>
 						<AiFillGithub size="30px" color='black' />
 					</a>
-					<a className={style.linkedin} target="_blank" href='https://linkedin.com'>
+					<a className={style.linkedin} target="_blank" href='https://www.linkedin.com/in/alexander-larsson-/'>
 						<AiFillLinkedin size="30px" color='black' />
 					</a>
 					<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@gmail.com">
@@ -429,7 +429,6 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 				</div>
 			</div>
 		</div>
-	);
-}
+
 
 export default App;

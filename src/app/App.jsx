@@ -398,6 +398,7 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 					</form>
 				</div>
 			</div>
+			</div>
 
 			{/* footer */}
 			<div className={style.footer}>
@@ -423,7 +424,7 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 							</div>
 						</div>
 					</div>
-									<div className={style["copy-right"]}>
+										<div className={style["copy-right"]}>
 						© Copyright 2026. Made by <span>Alexander Larsson</span>
 					</div>
 				</div>
@@ -433,5 +434,6 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 }
 
 export default App;
+
 
 

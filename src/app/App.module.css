@@ -257,7 +257,7 @@
 
 .home-content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 900px;
@@ -265,16 +265,21 @@
     text-align: center;
     z-index: 3; 
     color:white;
+
+     background: rgba(0, 0, 0, 0.35); 
+    padding: 30px 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
 }
 .home-content > h1 {
     color: #ffffff !important;
     font-size: 50px;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.6);
 }
 .home-content > p {
     color: #f0f0f0 !important;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 35px;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }

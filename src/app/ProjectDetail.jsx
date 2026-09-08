@@ -14,6 +14,7 @@ import Evil3 from '../assets/images/Evil3.png';
 import Friend1 from '../assets/images/Friend1.png';
 import Friend2 from '../assets/images/Friend2.png';
 import Friend3 from '../assets/images/Friend3.png';
+import Brew1 from '../assets/images/Brew1.png';
 
 import EvilutionBg from '../assets/images/Evillution_Bg.png';
 import FriendoBackground from '../assets/images/FriendoBackground.png';
@@ -55,7 +56,7 @@ const projectDetailsData = {
     'overbrewed': {
         name: 'OverBrewed',
         description: 'For this game i was the system designer. Worked on a Dialog system, NPC queue system. And then later on a Potion holder, And a timelapse to make the brewing more animated. ',
-        images: [overbrewing],
+        images: [Brew1],
         logo: overbrewing,
       
         engineIcons: [

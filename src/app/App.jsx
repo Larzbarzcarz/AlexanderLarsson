@@ -35,6 +35,7 @@ import LogoImage1 from '../assets/images/cplus_icon.png';
 import LogoImage2 from '../assets/images/csharp_icon.png';
 import ProfileImage from '../assets/images/Profil.jpg';
 
+
 //importing videos
 import Video1 from '../assets/videos/GP1.mp4';
 import Video2 from '../assets/videos/GP2.mp4';
@@ -87,7 +88,7 @@ const projects = [
 		link: 'https://futuregames.itch.io/evillution',
 		github: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting',
 		description: 'Secound game project - With bigger focus on making a phone game.',
-		image: Evilutions
+		image: Evilutions,
 	},
 	{
 		name: 'OverBrewed',
@@ -108,6 +109,7 @@ const projects = [
 
 function MainPortfolio() {
 	const form = useRef();
+	
 
 	const [menu, setMenu] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -130,6 +132,42 @@ function MainPortfolio() {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
+
+useEffect(() => {
+   
+    let favicon = document.querySelector("link[rel~='icon']");
+    if (!favicon) {
+        favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        document.head.appendChild(favicon);
+    }
+
+
+    const languages = [
+        { title: "Alexander Larsson | C++", icon: "/cplus_icon.png" },
+        { title: "Alexander Larsson | C#", icon: "/csharp_icon.png" }
+    ];
+
+    // Funktion som väljer ett slumpmässigt språk från listan
+    const setRandomTab = () => {
+        const randomIndex = Math.floor(Math.random() * languages.length);
+        const selected = languages[randomIndex];
+
+        document.title = selected.title;
+        // Vi lägger till ett slumpmässigt nummer i slutet (?v=...) 
+        // för att tvinga webbläsaren att ladda om ikonen och strunta i cachen!
+        favicon.href = `${selected.icon}?v=${Math.random()}`;
+    };
+
+   
+    setRandomTab();
+
+
+    const interval = setInterval(setRandomTab, 2000);
+
+    return () => clearInterval(interval);
+}, []);
+
 
 	const sendEmail = (e) => {
 		e.preventDefault();

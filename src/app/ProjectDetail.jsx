@@ -153,7 +153,7 @@ function ProjectDetail() {
 
                 <footer className={style.footerButtons}>
                     <a href={project.link} target="_blank" rel="noreferrer" className={style.itchButton}>
-                        Play on på Itch.io
+                        Play on  Itch.io
                     </a>
                     <a href={project.github} target="_blank" rel="noreferrer" className={style.githubButton}>
                          Sourcecode

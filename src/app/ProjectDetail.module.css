@@ -1,0 +1,83 @@
+.pageWrapper {
+    background-color: #1a1a1a; 
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.backButton {
+    color: #00adb5; 
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 30px;
+    transition: color 0.2s ease;
+}
+
+.backButton:hover {
+    color: #007a80;
+    text-decoration: underline;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.contentSection h2, .gallerySection h2 {
+    color: #00adb5;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.contentSection p {
+    line-height: 1.6;
+    color: #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.galleryImage {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    object-fit: cover;
+}
+
+.itchButton {
+    display: inline-block;
+    background-color: #da5757; /* Itch.io-röd */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.itchButton:hover {
+    background-color: #bc4343;
+}
+
+.errorContainer {
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+}

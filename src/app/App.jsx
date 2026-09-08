@@ -1,5 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProjectDetail from './ProjectDetail';
+
+
 
 // import components
 import DownloadButton from '../common/components/DownloadButton/DownloadButton';
@@ -8,7 +12,7 @@ import InputField from '../common/components/InputField/InputField';
 import TextAreaField from '../common/components/TextAreaField/TextAreaField';
 import SubmitButton from '../common/components/SubmitButton/SubmitButton';
 import Loader from '../common/components/Loader/Loader';
-
+import { Link } from "react-router-dom";
 
 // import icons
 import { FaReact } from "react-icons/fa";
@@ -74,37 +78,35 @@ const projects = [
 		name: 'TrashBashers',
 		link: 'https://futuregames.itch.io/trash-bashers',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/ZWW2AQ1W',
-		description: 'TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups. For this game i developed all the gameplay systems that complimented the game, Timer, Scoring System, Pickups, Menus, endscreen,',
-		image: TrashBashers
+		description: 'My very first game project — TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups',
+		image: TrashBashers,
+		isFirstProject: true 
 	},
 	{
 		name: `Evilution`,
 		link: 'https://futuregames.itch.io/evillution',
 		github: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting',
-		description: "Evilution is a phone game that was designed around the touch capability of phones with a simplistic turn based battler with a potion crafting system. That I was the lead programmer that directed the code development, Made the\n" +
-			"Turnbased combat, Camera system, Level swapping",
+		description: 'Secound game project - With bigger focus on making a phone game.',
 		image: Evilutions
 	},
 	{
 		name: 'OverBrewed',
 		link: 'https://futuregames.itch.io/overbrewed',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/gYz6Dr9t',
-		description: 'OverBrewed is a co.op game that takes place in a fantasy potion shop. Where the roles are split in to two, a potion seller and the one crafting the potions. With a heavy emphasis on communication I developed the NPC system to let the store vendor allow to serve\n' +
-			'customers. That would walk in and walk out and stand in a line.\n' +
-			'And player movement, And then the potion holder when crafting, A\n' +
-			'animation that would play out when the player is crafting a potion',
+		description: 'Third game project, - But first Unreal engine project. That is a Co.op game with a heavy emphasis on communication.',
 		image: overbrewing
 	},
 	{
 		name: 'FriendoAI',
 		link: 'https://larzko.itch.io/friendoai',
 		github: 'https://github.com/detdu/BBP-Game-Jam',
-		description: 'Its a game jam, That was mostly developed during 1 day. on the simple premise of if AI existed in the 90s, You as a player got to train the AI',
-		image: FriendoAI
+		description: 'Game jam, That was mostly developed on 1 day. Its a game based on the simple premise of if AI existed in the 90s You got to train the AI',
+		image: FriendoAI,
+		isSideProject: true 
 	},
 ]
 
-function App() {
+function MainPortfolio() {
 	const form = useRef();
 
 	const [menu, setMenu] = useState(false);
@@ -116,19 +118,18 @@ function App() {
 	const [isScrolled, setIsScrolled] = useState(false);
 
 
-useEffect(() => {
-    const handleScroll = () => {
-        // Om man skrollat mer än 100 pixlar ner på sidan, sätt till true
-        if (window.scrollY > 100) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 100) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-}, []);
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -143,8 +144,8 @@ useEffect(() => {
 				});
 			setLoading(false);
 		}, 2000);
-
 	};
+
 
 	return (
 		<div className={style.app}>
@@ -299,11 +300,17 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 				</div>
 			</div>
 
-			{/* Projects */}
+		{/* Projects */}
 			<div id='Projects' className={style.projects}>
 				<div className={style.container}>
 					<h2 className={style.title}>Projects</h2>
-					<p>Here you will find some of the games i did during my studies and free time with friends</p>
+					<div className={style.projectsPitch}>
+						<p>
+							Welcome to my project showcase! Here you will find a selection of games developed during my studies 
+							and free-time collaborations. Each project represents a step forward in mastering mechanics, optimization, 
+							and teamwork in both C# and C++.
+						</p>
+					</div>
 					<div className={style["projects-list"]}>
 						{
 							projects.map((project, index) => {
@@ -312,29 +319,19 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 										<img src={project.image} alt="Project Image" />
 									</div>
 									<div className={style["project-info"]}>
-										<h3>{project.name}</h3>
+										
+										{/* HÄR RITAS DINA NYA TAGGAR UT OVANFÖR RUBRIKEN */}
+								
+										{project.isSideProject && (
+											<span className={style.sideProjectBadge}>Side Project / Game Jam</span>
+										)}
+
+										<Link to={`/project/${project.name.toLowerCase()}`} className={style.projectTitleLink}>
+											{project.name}
+										</Link>
 										<p>{project.description}</p>
 										<div className={style["project-buttons"]}>
-											<IconButton
-												width="170px"
-												height="50px"
-												backgroundColor="var(--primary-main)"
-												color="white"
-												link={project.link}
-												icon={<AiOutlineEye size="25px" color='white' />}
-											>
-												Itch.io
-											</IconButton>
-											<IconButton
-												width="100px"
-												height="50px"
-												backgroundColor="black"
-												color="white"
-												link={project.github}
-												icon={<AiFillGithub size="25px" color='white' />}
-											>
-												Github
-											</IconButton>
+											{/* Om du vill lägga tillbaka dina knappar för Itch/Github här sen, lägg dem i denna div */}
 										</div>
 									</div>
 								</div>
@@ -430,6 +427,20 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 			</div>
 		</div>
 	);
+}
+
+
+function App() {
+    return (
+        <Router basename="/AlexanderLarsson"> 
+            <Routes>
+                {/* Huvudsidan med din portfolio */}
+                <Route path="/" element={<MainPortfolio />} />
+                {/* Den separata projektsidan */}
+                <Route path="/project/:projectId" element={<ProjectDetail />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

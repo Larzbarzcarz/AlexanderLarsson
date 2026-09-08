@@ -237,7 +237,7 @@ function MainPortfolio() {
 				/>
 
 				<div className={style["home-content"]}>
-					<h1>HEY, I'M Alexander Larsson</h1>
+					<h1> I'm Alexander Larsson</h1>
 					<p>A Game programmer Specialised in C# and C++</p>
 					<a
 						href="Resume.pdf" 

@@ -16,6 +16,7 @@ import Friend2 from '../assets/images/Friend2.png';
 import Friend3 from '../assets/images/Friend3.png';
 
 import EvilutionBg from '../assets/images/Evillution_Bg.png';
+import FriendoBackground from '../assets/images/FriendoBackground.png';
 
 
 const BlueprintIcon = () => (
@@ -56,6 +57,7 @@ const projectDetailsData = {
         description: 'For this game i was the system designer. Worked on a Dialog system, NPC queue system. And then later on a Potion holder, And a timelapse to make the brewing more animated. ',
         images: [overbrewing],
         logo: overbrewing,
+      
         engineIcons: [
             { icon: <SiUnrealengine size="28px" color="#ffffff" />, name: 'Unreal Engine' },
             { icon: <BlueprintIcon />, name: 'Blueprints' }
@@ -67,9 +69,10 @@ const projectDetailsData = {
     },
     'friendoai': {
         name: 'FriendoAi',
-        description: 'Its a game jam, That was mostly developed during 1 day. on the simple premise of if AI existed in the 90s, You as a player got to train the AI.',
+        description: 'i made it around the Guessing system that would check for 2 words. and a memory list that would show you the words you wrote, And give you hints. with a corruption mode where you get shown cursed images you have to guess',
         images: [Friend1,Friend2,Friend3],
         logo: FriendoAI,
+        backgroundImage: FriendoBackground,
         
         engineIcons: [
             { icon: <SiUnity size="28px" color="#ffffff" />, name: 'Unity' }
@@ -90,7 +93,7 @@ function ProjectDetail() {
     if (!project) {
         return (
             <div className={style.errorContainer}>
-                <h2>Projektet hittades inte</h2>
+                <h2>Project is not found</h2>
                 <Link to="/">Tillbaka hem</Link>
             </div>
         );
@@ -131,7 +134,7 @@ function ProjectDetail() {
                 </header>
                 
                 <section className={style.contentSection}>
-                    <h2>About projektet</h2>
+                    <h2>About project</h2>
                     <p>{project.description}</p>
                 </section>
                 

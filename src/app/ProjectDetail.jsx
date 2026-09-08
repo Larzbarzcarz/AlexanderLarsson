@@ -84,6 +84,8 @@ const projectDetailsData = {
 function ProjectDetail() {
     const { projectId } = useParams();
     const project = projectDetailsData[projectId?.toLowerCase()];
+    
+    const [activeImage, setActiveImage] = React.useState(null);
 
     if (!project) {
         return (
@@ -94,7 +96,6 @@ function ProjectDetail() {
         );
     }
 
- 
     const dynamicBackgroundStyle = project.backgroundImage 
         ? {
             backgroundImage: `linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url(${project.backgroundImage})`,
@@ -117,7 +118,6 @@ function ProjectDetail() {
                         <h1>{project.name}</h1>
                     </div>
 
-                    {/* Renderar tekniska ikoner om de existerar i projektet */}
                     {project.engineIcons && project.engineIcons.length > 0 && (
                         <div className={style.engineBadges}>
                             {project.engineIcons.map((item, index) => (
@@ -145,6 +145,8 @@ function ProjectDetail() {
                                     src={img} 
                                     alt={`${project.name} screenshot ${index}`} 
                                     className={style.galleryImage}
+                                    onClick={() => setActiveImage(img)} // Öppnar bilden i stort format vid klick
+                                    style={{ cursor: 'zoom-in' }} // Ändrar muspekaren till ett förstoringsglas
                                 />
                             ))}
                         </div>
@@ -153,13 +155,23 @@ function ProjectDetail() {
 
                 <footer className={style.footerButtons}>
                     <a href={project.link} target="_blank" rel="noreferrer" className={style.itchButton}>
-                        Play on  Itch.io
+                        Play on Itch.io
                     </a>
                     <a href={project.github} target="_blank" rel="noreferrer" className={style.githubButton}>
-                         Sourcecode
+                         Source code
                     </a>
                 </footer>
             </div>
+
+            {/* LIGHTBOX MODAL — Visas bara när activeImage inte är null */}
+            {activeImage && (
+                <div className={style.lightboxOverlay} onClick={() => setActiveImage(null)}>
+                    <div className={style.lightboxContent}>
+                        <img src={activeImage} alt="Enlarged screenshot" />
+                        <span className={style.lightboxClose}>&times;</span>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

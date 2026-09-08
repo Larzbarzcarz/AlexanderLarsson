@@ -100,7 +100,7 @@ const projects = [
 		name: 'FriendoAI',
 		link: 'https://larzko.itch.io/friendoai',
 		github: 'https://github.com/detdu/BBP-Game-Jam',
-		description: 'Game jam, That was mostly developed on 1 day. Its a game based on the simple premise of if AI existed in the 90s You got to train the AI',
+		description: 'Game jam, That was mostly developed on 1 day. Its a game based on the simple premise of if AI existed in the 90s. You got to train the AI',
 		image: FriendoAI,
 		isSideProject: true 
 	},

@@ -24,6 +24,8 @@ import { FaMobileAlt } from "react-icons/fa";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { SiTypescript, SiRecoil, SiReactquery } from "react-icons/si";
 import {  TbBrandCSharp } from "react-icons/tb";
+import { SiUnrealengine, SiUnity, SiPerforce } from "react-icons/si";
+
 
 //import images
 
@@ -71,6 +73,23 @@ const skills = [
 		name: 'Problem Solving',
 		icon: <BsPuzzle size="25px" color="white" />,
 		cssName: "problem-solving"
+	}
+];
+const tools = [
+	{
+		name: 'Unity',
+		icon: <SiUnity size="25px" color="white" />,
+		cssName: "unity"
+	},
+	{
+		name: 'Unreal Engine',
+		icon: <SiUnrealengine size="25px" color="white" />,
+		cssName: "unreal"
+	},
+	{
+		name: 'Perforce',
+		icon: <SiPerforce size="25px" color="white" />,
+		cssName: "perforce"
 	}
 ];
 
@@ -333,10 +352,23 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 									})
 								}
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+							
+							{/* SEKTION FÖR DINA ENGINES & TOOLS */}
+							<h3 className={style.subSkillTitle} style={{ marginTop: '30px' }}>Engines & Tools</h3>
+							<div className={style.skills}>
+								{
+									tools.map((tool, index) => {
+										return <div key={`tool${index}`} className={`${style.skill} ${style[tool.cssName]}`}>
+											<div className={style["skill-name"]}>{tool.name}</div>
+											<div className={style["skill-icon"]}>{tool.icon}</div>
+										</div>
+									})
+								}
+							</div>
+						</div> 
+					</div> 
+				</div> 
+			</div> 
 
 		{/* Projects */}
 			<div id='Projects' className={style.projects}>

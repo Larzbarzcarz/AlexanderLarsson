@@ -1087,3 +1087,22 @@
         height: 140px;
     }
 }
+.unity:hover::after {
+    background-color: #222c37; /* Mörkgrå Unity-färg */
+}
+
+.unreal:hover::after {
+    background-color: #0e0e0e; /* Svart Unreal-färg */
+}
+
+.perforce:hover::after {
+    background-color: #1a446c; /* Perforce-blå färg */
+}
+
+/* Stil för den nya underrubriken */
+.subSkillTitle {
+    margin: 30px 0 20px 0 !important;
+    font-size: 20px !important;
+    color: var(--title-color);
+    font-weight: 700;
+}

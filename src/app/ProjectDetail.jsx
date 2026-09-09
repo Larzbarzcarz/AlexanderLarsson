@@ -15,6 +15,8 @@ import Friend1 from '../assets/images/Friend1.png';
 import Friend2 from '../assets/images/Friend2.png';
 import Friend3 from '../assets/images/Friend3.png';
 import Brew1 from '../assets/images/Brew1.png';
+import Trash2 from '../assets/images/Trash2.png';
+import Trash1 from '../assets/images/Trash1.png';
 
 import EvilutionBg from '../assets/images/Evillution_Bg.png';
 import FriendoBackground from '../assets/images/FriendoBackground.png';
@@ -31,8 +33,8 @@ const BlueprintIcon = () => (
 const projectDetailsData = {
     'trashbashers': {
         name: 'TrashBashers',
-        description: ' For this game i developed all the gameplay systems that complimented the game, Timer, Scoring System, Pickups, Menus, endscreen.',
-        images: [],
+        description: ' For this game i developed all the gameplay systems that complimented the game, Timer, Scoring System, Pickups, Menus, endscreen. Also then i assisted on development on boost system that got recharged on the amount of trash you picked up.',
+        images: [Trash1,Trash2],
         logo: TrashBashers, 
         engineIcons: [
             { icon: <SiUnity size="28px" color="#ffffff" />, name: 'Unity' }
@@ -95,7 +97,7 @@ function ProjectDetail() {
         return (
             <div className={style.errorContainer}>
                 <h2>Project is not found</h2>
-                <Link to="/">Tillbaka hem</Link>
+                <Link to="/">Going back to portfolio</Link>
             </div>
         );
     }

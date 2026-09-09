@@ -25,6 +25,12 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { SiTypescript, SiRecoil, SiReactquery } from "react-icons/si";
 import {  TbBrandCSharp } from "react-icons/tb";
 import { SiUnrealengine, SiUnity, SiPerforce } from "react-icons/si";
+import {  FaFilePdf } from "react-icons/fa";
+import {AiFillThunderbolt } from "react-icons/ai";
+
+// 2. Säkerställ att BsGit och FaCode (för OOP) finns tillgängliga
+
+import {   FaCode } from "react-icons/fa";
 
 
 //import images
@@ -55,7 +61,7 @@ const skills = [
 
 	{
 		name: 'Responsive Design',
-		icon: <FaMobileAlt size="25px" color="white" />,
+		icon: <AiFillThunderbolt size="25px" color="white" />,
 		cssName: "responsive"
 	},
 	
@@ -73,8 +79,15 @@ const skills = [
 		name: 'Problem Solving',
 		icon: <BsPuzzle size="25px" color="white" />,
 		cssName: "problem-solving"
+	},
+	{
+	
+		name: 'Object Oriented Programming',
+		icon: <FaCode size="25px" color="white" />,
+		cssName: "oop"
 	}
 ];
+
 const tools = [
 	{
 		name: 'Unity',
@@ -90,6 +103,16 @@ const tools = [
 		name: 'Perforce',
 		icon: <SiPerforce size="25px" color="white" />,
 		cssName: "perforce"
+	},
+	{
+		name: 'Git',
+		icon: <BsGit size="25px" color="white" />,
+		cssName: "git"
+	},
+	{	
+		name: 'GitHub',
+		icon: <AiFillGithub size="25px" color="white" />,
+		cssName: "github-tool" 
 	}
 ];
 
@@ -100,7 +123,11 @@ const projects = [
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/ZWW2AQ1W',
 		description: 'My very first game project — TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups',
 		image: TrashBashers,
-		isFirstProject: true 
+		
+		language: 'C#',
+		year: '2025',
+		duration: '4 Weeks',
+		groupSize: 'Group of 12'
 	},
 	{
 		name: `Evilution`,
@@ -108,13 +135,22 @@ const projects = [
 		github: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting',
 		description: 'Secound game project - With bigger focus on making a phone game.',
 		image: Evilutions,
+		language: 'C#',
+		year: '2025',
+		duration: '7 Weeks',
+		groupSize: 'Group of 11'
 	},
 	{
 		name: 'OverBrewed',
 		link: 'https://futuregames.itch.io/overbrewed',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/gYz6Dr9t',
-		description: 'Third game project, - But first Unreal engine project. That is a Co.op game with a heavy emphasis on communication.',
-		image: overbrewing
+		description: 'Third game project, - But first Unreal engine project. That is a co.op game with a heavy emphasis on communication.',
+		image: overbrewing,
+		language: 'C++',
+		hasBlueprints: true,
+		year: '2026',
+		duration: '8 Weeks',
+		groupSize: 'Group of 14'
 	},
 	{
 		name: 'FriendoAI',
@@ -122,7 +158,11 @@ const projects = [
 		github: 'https://github.com/detdu/BBP-Game-Jam',
 		description: 'Game jam, That was mostly developed on 1 day. Its a game based on the simple premise of if AI existed in the 90s. You got to train the AI',
 		image: FriendoAI,
-		isSideProject: true 
+		isSideProject: true,
+		language: 'C#',
+		year: '2026',
+		duration: '1 Day',
+		groupSize: 'Group of 5 '
 	},
 ]
 
@@ -173,8 +213,7 @@ useEffect(() => {
         const selected = languages[randomIndex];
 
         document.title = selected.title;
-        // Vi lägger till ett slumpmässigt nummer i slutet (?v=...) 
-        // för att tvinga webbläsaren att ladda om ikonen och strunta i cachen!
+       
         favicon.href = `${selected.icon}?v=${Math.random()}`;
     };
 
@@ -235,12 +274,25 @@ useEffect(() => {
 					<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@gmail.com">
 						<BiLogoGmail size="30px" color='black' />
 					</a>
+					<a 
+    className={style.cvIcon} 
+    href="Resume.pdf" 
+    download="Alexander_Larsson_CV.pdf" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    title="Download CV"
+>
+    {/* NY ENKEL CV-IKON */}
+    <div className={style.simpleCvBox}>
+        <span>CV</span>
+    </div>
+</a>
 				</div>
     <ul>
 					<li><a href="#Home">Home</a></li>
 					<li><a href="#About">About</a></li>
 					<li><a href="#Projects">Projects</a></li>
-					<li><a href="#Contact">Contact</a></li>
+					
 				</ul>
 				<div className={style["menu-icon"]}>
 					<input id='checkbox' className={style["checkbox2"]} type="checkbox" />
@@ -270,6 +322,19 @@ useEffect(() => {
 				<a className={style.gmail} target="_blank" href="mailto:bjdalexander.larsson@gmail.com">
 					<BiLogoGmail size="30px" color='black' />
 				</a>
+	<a 
+    className={style.cvIcon} 
+    href="Resume.pdf" 
+    download="Alexander_Larsson_CV.pdf" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    title="Download CV"
+>
+    {/* NY ENKEL CV-IKON */}
+    <div className={style.simpleCvBox}>
+        <span>CV</span>
+    </div>
+</a>
 			</div>
 			{
 				menu === true &&
@@ -295,17 +360,8 @@ useEffect(() => {
 
 				<div className={style["home-content"]}>
 					<h1> I'm Alexander Larsson</h1>
-					<p>A Game programmer Specialised in C# and C++</p>
-					<a
-						href="Resume.pdf" 
-						download="Alexander_Larsson_CV.pdf" 
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<DownloadButton >
-							Download CV
-						</DownloadButton>
-					</a>
+					<p>A Game programmer </p>
+				
 				</div>
 				<div className={style["scroll-icon"]}>
 					<div className={style["scroll-down"]} style={{ color: "skyblue !important" }}>
@@ -334,7 +390,7 @@ useEffect(() => {
 							<p>
 								I'm a <span>Game Programmer</span> focused on building efficient gameplay systems, mechanics, and interactive experiences that bring virtual worlds to life. Check out some of my work in the <span>Projects</span> section. <br /> <br />
 
-I also enjoy breaking down complex systems and sharing knowledge related to the things I've learned over the years in <span>Game Development</span> to help and inspire others in the gamedev community. Feel free to Connect or Follow me on my <a href="https://www.linkedin.com/in/alexander-larsson-/" target="_blank">Linkedin</a> where I post updates about my programming journey and engineering insights. <br /> <br />
+I also enjoy breaking down complex systems and sharing knowledge related to the things I've learned over the time in FutureGames  <span>Game Programming Education </span> to help and inspire others in the gamedev community. Feel free to Connect or Follow me on my <a href="https://www.linkedin.com/in/alexander-larsson-/" target="_blank">Linkedin</a> where I post updates about my programming journey and engineering insights. <br /> <br />
 
 I'm actively looking for <span>Job</span> opportunities where I can apply my skills in <span>C# and C++</span> to contribute to exciting game projects, learn from experienced teams, and grow as an engineer. If you have an opportunity that matches my profile, don't hesitate to <span>contact</span> me.
 
@@ -376,9 +432,7 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 					<h2 className={style.title}>Projects</h2>
 					<div className={style.projectsPitch}>
 						<p>
-							Welcome to my project showcase! Here you will find a selection of games developed during my studies 
-							and free-time collaborations. Each project represents a step forward in mastering mechanics, optimization, 
-							and teamwork in both C# and C++.
+							
 						</p>
 					</div>
 					<div className={style["projects-list"]}>
@@ -388,17 +442,30 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 									<div className={style["project-image"]}>
 										<img src={project.image} alt="Project Image" />
 									</div>
-									<div className={style["project-info"]}>
-										
-										{/* HÄR RITAS DINA NYA TAGGAR UT OVANFÖR RUBRIKEN */}
-								
-										{project.isSideProject && (
-											<span className={style.sideProjectBadge}>Side Project / Game Jam</span>
-										)}
+								<div className={style["project-info"]}>
+	
+	{/* CONTAINER FOR ALL BADGES */}
+	<div className={style.badgeContainer}>
+		{project.isFirstProject && (
+			<span className={`${style.badge} ${style.firstProject}`}>First Project</span>
+		)}
+		{project.isSideProject && (
+			<span className={`${style.badge} ${style.sideProject}`}>Side Project</span>
+		)}
+		{project.hasBlueprints && (
+			<span className={`${style.badge} ${style.blueprintBadge}`}>Blueprints</span>
+		)}
+		
+		{/* Allmänna data-taggar som varje projekt har */}
+		<span className={`${style.badge} ${style.langBadge}`}>{project.language}</span>
+		<span className={`${style.badge} ${style.metaBadge}`}>{project.year}</span>
+		<span className={`${style.badge} ${style.metaBadge}`}>{project.duration}</span>
+		<span className={`${style.badge} ${style.metaBadge}`}>{project.groupSize}</span>
+	</div>
 
-										<Link to={`/project/${project.name.toLowerCase()}`} className={style.projectTitleLink}>
-											{project.name}
-										</Link>
+	<Link to={`/project/${project.name.toLowerCase()}`} className={style.projectTitleLink}>
+		{project.name}
+	</Link>
 										<p>{project.description}</p>
 										<div className={style["project-buttons"]}>
 											{/* Om du vill lägga tillbaka dina knappar för Itch/Github här sen, lägg dem i denna div */}
@@ -412,60 +479,7 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 				</div>
 			</div>
 
-			{/* Contact */}
-			<div id='Contact' className={style.contact}>
-				<div className={style.container}>
-					<h2 className={style.title}>Contact</h2>
-					<p>Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</p>
-					<form
-						ref={form} onSubmit={sendEmail}
-						className={
-							clsx(
-								{ [style['inactive-form']]: loading }
-							)}
-					>
-						<InputField
-							width="700px"
-							height="40px"
-							name="name"
-							placeholder="Enter Your Name"
-							label="Name"
-							type="text"
-						/>
-						<InputField
-							width="700px"
-							height="40px"
-							name="email"
-							placeholder="Enter Your Email"
-							label="Email"
-							type="email"
-						/>
-						<TextAreaField
-							width="700px"
-							height="250px"
-							name="message"
-							placeholder="Enter Your Message"
-							label="Message"
-							type="text"
-						/>
-						<SubmitButton
-							icon={<RiSendPlaneFill size="20px" color='white' />}
-							width="200px"
-							height="60px"
-							color="white"
-							backgroundColor="var(--primary-main)"
-						>
-							Submit
-						</SubmitButton>
-						{
-							loading &&
-							<div className={style.loader}>
-								<Loader />
-							</div>
-						}
-					</form>
-				</div>
-			</div>
+		
 
 	{/* footer */}
 			<div className={style.footer}>

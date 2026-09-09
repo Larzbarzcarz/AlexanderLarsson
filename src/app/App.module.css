@@ -778,7 +778,6 @@
     color: var(--paragraph-color, #666);
 }
 
-/* 2-kolumners grid som sträcker sig bra över skärmen */
 .projects-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -786,10 +785,9 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: stretch; /* Gör att korten på samma rad alltid blir exakt lika höga */
+    align-items: stretch; /* Håller korten på samma rad lika höga */
 }
 
-/* Varje projekt blir ett snyggt, enhetligt kort */
 .project {
     display: flex;
     flex-direction: column;
@@ -801,41 +799,39 @@
     box-sizing: border-box;
 }
 
-/* BILDCONTAINER: Skapar en snygg inramning för dina spelbilder */
+/* FIXAT: Ingen fast höjd! Nu använder vi aspect-ratio för att ge detaljerna fullt utrymme */
 .project-image {
     width: 100%;
-    height: 280px;            /* Fast höjd för hela bildytan */
-    background-color: #1a1a1a; /* Mörk "biograf-bakgrund" som döljer tomrum runt contain-bilder */
+    aspect-ratio: 16 / 10;     /* Skapar ett perfekt spelfönster/widescreen-format */
+    background-color: #1a1a1a; 
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.6); /* Ger djup inuti ramen */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.6); 
 }
 
-/* BILDEN: Nu med contain så att INGA detaljer eller textdetaljer krymps/klipps bort! */
+/* BILDEN: Nu med cover för att fylla ut hela rutan och visa alla detaljer utan nerkrympt pixelering */
 .project-image>img {
     width: 100%;
     height: 100%;
-    object-fit: contain;       /* Säkerställer att hela bilden visas i sin helhet */
+    object-fit: cover;         /* Fyller hela spelfönstret knivskarpt */
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .project-image:hover>img {
-    transform: scale(1.04);    /* Bilden zoomar in lite mjukt inuti ramen vid hover */
+    transform: scale(1.03);    /* Mjuk liten zoom vid hovring */
 }
 
-/* Textbehållare */
 .project-info {
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;             /* Låter infon ta upp resten av kortets höjd */
+    flex-grow: 1;             
 }
 
-/* Fixar rubriklänkarna */
 .projectTitleLink {
     font-size: 1.9rem;
     font-weight: 800;
@@ -850,7 +846,6 @@
     color: var(--primary-main, #00adb5);
 }
 
-/* Beskrivningstexten */
 .project-info>p {
     font-size: 1.05rem;
     color: var(--paragraph-color, #555);
@@ -859,32 +854,60 @@
     flex-grow: 1;            
 }
 
-/* Taggar */
-.firstProjectBadge, .sideProjectBadge {
-    display: inline-block;
-    align-self: flex-start;
-    font-size: 0.75rem;
+/* --- DET NYA UTBYGGDA TAGG-SYSTEMET --- */
+
+.badgeContainer {
+    display: flex;
+    flex-wrap: wrap; /* Gör att taggarna bryter ner snyggt till en ny rad om de inte får plats */
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.badge {
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding: 4px 10px;
     border-radius: 6px;
-    margin-bottom: 10px;
+    border: 1px solid transparent;
+    display: inline-block;
+      color: #334155 !important; 
 }
 
-.firstProjectBadge {
+.firstProject {
     background-color: #fef3c7;
     color: #b45309;
-    border: 1px solid #fde68a;
+    border-color: #fde68a;
 }
 
-.sideProjectBadge {
+.sideProject {
     background-color: #eef2f3;
     color: #475569;
-    border: 1px solid #cbd5e1;
+    border-color: #cbd5e1;
 }
 
-/* Knapparna längst ner på kortet */
+/* Din nya Blueprint-tagg (Klassisk Unreal-orange!) */
+.blueprintBadge {
+    background-color: #fff7ed;
+    color: #c2410c;
+    border-color: #ffedd5;
+}
+
+/* Språk-tagg (Lila/Blåtonad) */
+.langBadge {
+    background-color: #f5f3ff;
+    color: #6d28d9;
+    border-color: #ddd6fe;
+}
+
+/* Metadata-taggar (År, Tid, Gruppstorlek) */
+.metaBadge {
+    background-color: #f8fafc;
+    color: #64748b;
+    border-color: #e2e8f0;
+}
+
 .project-buttons {
     display: flex;
     align-items: center;
@@ -892,18 +915,12 @@
     margin-top: auto;        
 }
 
-/* RESPONSIVITET FÖR MOBIL OCH SURFPLATTA */
 @media (max-width: 960px) {
     .projects-list {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* 1 kolumn på mobilen */
         grid-gap: 30px;
     }
-
-    .project-image {
-        height: 240px;        
-    }
 }
-
 /* ************************************** Contact ************************************** */
 
 .contact {
@@ -1144,4 +1161,119 @@
     font-size: 20px !important;
     color: var(--title-color);
     font-weight: 700;
+}
+.cvIcon:hover {
+    background-color: #da5757; /* En snygg PDF-röd färg vid hover */
+    transition: .3s;
+    border-radius: 5px;
+}
+.cvIcon:hover>svg {
+    fill: white;
+}
+/* Container som samlar alla taggarna på en rad med ett litet mellanrum */
+.badgeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* En grundstil för ALLA taggar med en mörkare basfärg */
+.badge {
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+    border: 1px solid #cbd5e1;
+    background-color: #f1f5f9;
+    color: #334155; /* Mörkt skiffergrå text som standard så allt syns */
+}
+
+/* Guldgul tagg för första projektet */
+.firstProject {
+    background-color: #fef3c7 !important;
+    color: #b45309 !important;
+    border-color: #fde68a !important;
+}
+
+/* Neutral grå/blå tagg för sidoprojekt */
+.sideProject {
+    background-color: #e2e8f0 !important;
+    color: #1e293b !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* Unreal Engine Blueprint-tagg (Tydlig orange) */
+.blueprintBadge {
+    background-color: #ffedd5 !important;
+    color: #ea580c !important;
+    border-color: #fed7aa !important;
+}
+
+/* Språk-tagg för C++ och C# (Snygg lila) */
+.langBadge {
+    background-color: #f3e8ff !important;
+    color: #7e22ce !important;
+    border-color: #e9d5ff !important;
+}
+
+/* Taggarna för År, Tid och Gruppstorlek (Tydlig grå inramning) */
+.metaBadge {
+    background-color: #f8fafc !important;
+    color: #475569 !important;
+    border-color: #cbd5e1 !important;
+}
+.responsive:hover::after {
+    background-color: #f59e0b !important; 
+}
+
+/* Mörkröd färg för Git */
+.git:hover::after {
+    background-color: #f05032 !important; 
+}
+
+/* Mörkgrå färg för GitHub */
+.github-tool:hover::after {
+    background-color: #24292e !important; 
+}
+
+/* Snygg blå/lila färg för OOP-knappen */
+.oop:hover::after {
+    background-color: #4f46e5 !important; 
+}
+.simpleCvBox {
+    width: 30px;               /* Samma storlek som dina andra ikoner (30px) */
+    height: 30px;
+    border: 2px solid black;   /* Svart stilren ram */
+    border-radius: 6px;        /* Mjukt avrundade hörn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Stylar själva texten inuti boxen */
+.simpleCvBox span {
+    font-family: sans-serif;
+    font-size: 11px;           
+    font-weight: 800;          
+    color: black;             
+    letter-spacing: 0.5px;
+}
+
+
+.cvIcon:hover .simpleCvBox {
+    background-color: #da5757; 
+    border-color: #da5757;
+    transform: scale(1.1);    
+}
+
+/* Gör texten vit när man hovrar över boxen */
+.cvIcon:hover .simpleCvBox span {
+    color: white;
 }

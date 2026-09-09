@@ -36,6 +36,11 @@ const projectDetailsData = {
         description: ' For this game i developed all the gameplay systems that complimented the game, Timer, Scoring System, Pickups, Menus, endscreen. Also then i assisted on development on boost system that got recharged on the amount of trash you picked up.',
         images: [Trash1,Trash2],
         logo: TrashBashers, 
+        language: 'C#',
+        year: '2025',
+        duration: '4 Weeks',
+        groupSize: 'Group of 12',
+
         engineIcons: [
             { icon: <SiUnity size="28px" color="#ffffff" />, name: 'Unity' }
         ],
@@ -47,19 +52,29 @@ const projectDetailsData = {
         description: 'For this game, I was the Lead Programmer. That did code reviews. And directed the code direction. Also i made the Camera swapping system. Did the setup for the animations, Turnbased combat. Touch Controls,',
         images: [Evil1,Evil2,Evil3],
         logo: Evilutions,
+        language: 'C#',
+		year: '2024',
+		duration: '7 Weeks',
+		groupSize: 'Group of 11',
         backgroundImage: EvilutionBg,
         
         engineIcons: [
             { icon: <SiUnity size="28px" color="#ffffff" />, name: 'Unity' }
         ],
         github: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting',
-        link: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting'
+        link: 'https://futuregames.itch.io/evillution'
     },
     'overbrewed': {
         name: 'OverBrewed',
         description: 'For this game i was the system designer. Worked on a Dialog system, NPC queue system. And then later on a Potion holder, And a timelapse to make the brewing more animated. ',
         images: [Brew1],
         logo: overbrewing,
+        language: 'C++',
+        hasBlueprints: true,
+        year: '2025',
+		duration: '7 Weeks',
+        groupSize: 'Group of 14',
+	
       
         engineIcons: [
             { icon: <SiUnrealengine size="28px" color="#ffffff" />, name: 'Unreal Engine' },
@@ -76,6 +91,11 @@ const projectDetailsData = {
         images: [Friend1,Friend2,Friend3],
         logo: FriendoAI,
         backgroundImage: FriendoBackground,
+        language: 'C#',
+		year: '2025',
+		duration: '1 Day',
+        groupSize: '5 pepole',
+      
         
         engineIcons: [
             { icon: <SiUnity size="28px" color="#ffffff" />, name: 'Unity' }

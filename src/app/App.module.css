@@ -21,9 +21,11 @@
 .logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; 
+    flex-direction: row;        
     gap: 15px;
     cursor: pointer;
+    text-decoration: none;      
 }
 
 .logo>svg {
@@ -154,11 +156,56 @@
     }
 }
 
-@media (max-width: 768px) {
-    .nav {
-        position: relative;
+@media (max-width: 1100px) {
+    .project {
+        grid-template-columns: 1fr; /* Lägger bilden ovanför texten på mobil */
+        grid-gap: 20px;
+        margin-bottom: 60px;
+        width: 100%;
+        padding: 0 15px; /* Ger lite luft till kanten på mobilen */
     }
 
+    .project-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .project-image>img {
+        width: 100%;        
+        max-width: 480px;  
+        height: auto;      
+        aspect-ratio: 16 / 10; 
+    }
+
+    .project-info {
+        display: flex;
+        align-items: center; /* Centrerar rubrik och taggar på mobil */
+        text-align: center;   /* Centrerar texten */
+        margin-top: 10px;     /* Rensar bort den gamla krockande marginalen */
+        margin-bottom: 0;
+    }
+
+    .projectTitleLink {
+        font-size: 1.8rem;    /* Lite mer lagom rubrikstorlek för mobil */
+        margin-bottom: 10px;
+    }
+
+    .project-info>p {
+        text-align: center;
+        max-width: 100%;      /* Låter texten använda hela mobilbredden */
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+    }
+
+    .project-buttons {
+        justify-content: center; /* Centrerar knapparna under texten */
+        width: 100%;
+        gap: 15px;
+    }
+}
+
+    @media (max-width: 1100px) {
     .menu-icon {
         display: block;
     }
@@ -167,26 +214,23 @@
         display: none;
     }
 
+    /* Fixar loggan till en horisontell rad utan hoptryckta kanter på mindre skärmar */
     .logo {
-        flex-direction: column;
-        border: 2px solid var(--primary-main);
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        gap: 0;
-        justify-content: space-evenly;
-    }
-
-    .logo>svg {
-        width: 30px;
-        height: 30px;
+        flex-direction: row !important; 
+        border: none !important;        
+        border-radius: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        gap: 12px;
+        justify-content: flex-start;
     }
 
     .logo>h5 {
-        font-size: 8px;
-        text-align: center;
-        width: 40px;
+        font-size: 15px !important;    /* Gör namnet läsbart på mindre skärmar */
+        text-align: left !important;
+        width: auto !important;
     }
+}
 
     .menu {
         display: flex;
@@ -218,7 +262,7 @@
         color: var(--primary-light);
     }
 
-}
+
 
 /* ************************************** Home ************************************** */
 
@@ -422,13 +466,19 @@
 }
 
 @media (max-width: 768px) {
-    .home-content>h1 {
-        font-size: 35px;
+    .home-content {
+        padding: 20px 15px; /* Minskar paddingen på mobilen så rutan inte blir för stor */
+        width: 90%;
     }
-
-    .home-content>p {
+    
+    .home-content > h1 {
+        font-size: 28px; /* Gör namnet lite mer lagom stort på mobilen */
+    }
+    
+    .home-content > p {
         font-size: 16px;
     }
+
 
     .contact-nav {
         bottom: 20px;
@@ -713,12 +763,12 @@
 }
 
 /* ************************************** Projects ************************************** */
-
 .projects {
     min-height: 100vh;
     background-color: white;
     padding-top: 100px;
 }
+
 .projectsPitch {
     max-width: 800px;
     margin: 0 auto 60px;
@@ -728,140 +778,129 @@
     color: var(--paragraph-color, #666);
 }
 
-.projects>.container>p {
-    font-size: 18px;
-    text-align: center;
+/* 2-kolumners grid som sträcker sig bra över skärmen */
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
     width: 100%;
-    line-height: 1.6;
-    color: var(--paragraph-color);
-    margin: 0;
-    max-width: 700px;
-    margin: 0 auto 90px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch; /* Gör att korten på samma rad alltid blir exakt lika höga */
 }
 
-.projects-list {
+/* Varje projekt blir ett snyggt, enhetligt kort */
+.project {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f2f5;
+    box-sizing: border-box;
+}
+
+/* BILDCONTAINER: Skapar en snygg inramning för dina spelbilder */
+.project-image {
+    width: 100%;
+    height: 280px;            /* Fast höjd för hela bildytan */
+    background-color: #1a1a1a; /* Mörk "biograf-bakgrund" som döljer tomrum runt contain-bilder */
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.6); /* Ger djup inuti ramen */
 }
 
-.project {
-    display: grid;
-    grid-template-columns: 500px 1fr;
-    grid-gap: 60px;
-    margin-bottom: 80px;
-    align-items: center; 
-    width: 100%;
-    max-width: 1100px;
-}
-
+/* BILDEN: Nu med contain så att INGA detaljer eller textdetaljer krymps/klipps bort! */
 .project-image>img {
     width: 100%;
-    height: 320px;
-    object-fit: cover;         
-    border-radius: 16px;     
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); 
-    transition: transform 0.3s ease; 
+    height: 100%;
+    object-fit: contain;       /* Säkerställer att hela bilden visas i sin helhet */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.project-image:hover>img {
+    transform: scale(1.04);    /* Bilden zoomar in lite mjukt inuti ramen vid hover */
+}
+
+/* Textbehållare */
 .project-info {
-    margin-top: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-.projectTitleLink {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--title-color, #333);            
-    text-decoration: none;    
-    display: inline-block;
-}
-.project-image>img:hover {
-    transform: translateY(-4px);
+    flex-grow: 1;             /* Låter infon ta upp resten av kortets höjd */
 }
 
+/* Fixar rubriklänkarna */
+.projectTitleLink {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--title-color, #222);
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.2s ease;
+}
 
 .projectTitleLink:hover {
-    color: var(--primary-main, #00adb5); 
+    color: var(--primary-main, #00adb5);
 }
 
-.project-info>h3 {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 30px;
-    font-size: 25px;
-    color: var(--title-color);
-    font-weight: 700;
-}
-
+/* Beskrivningstexten */
 .project-info>p {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--paragraph-color, #555);
     line-height: 1.6;
-    margin: 0 0 20px 0;
-    padding: 0;
+    margin-bottom: 30px;
+    flex-grow: 1;            
 }
-.firstProjectBadge {
+
+/* Taggar */
+.firstProjectBadge, .sideProjectBadge {
     display: inline-block;
     align-self: flex-start;
-    background-color: #fef3c7; 
-    color: #b45309;            
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 6px;
     margin-bottom: 10px;
+}
+
+.firstProjectBadge {
+    background-color: #fef3c7;
+    color: #b45309;
     border: 1px solid #fde68a;
 }
+
 .sideProjectBadge {
-    display: inline-block;
-    align-self: flex-start;    
-    background-color: #eef2f3; 
-    color: #475569;            
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 4px 12px;
-    border-radius: 6px;
-    margin-bottom: 10px;        
+    background-color: #eef2f3;
+    color: #475569;
     border: 1px solid #cbd5e1;
 }
 
+/* Knapparna längst ner på kortet */
 .project-buttons {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
+    margin-top: auto;        
 }
 
-@media (max-width: 1100px) {
-    .project {
-        grid-template-columns: 1fr;
+/* RESPONSIVITET FÖR MOBIL OCH SURFPLATTA */
+@media (max-width: 960px) {
+    .projects-list {
+        grid-template-columns: 1fr; 
         grid-gap: 30px;
-        margin-bottom: 100px;
     }
 
-    .project-image>img {
-        width: 400px;
-        height: 300px;
-    }
-
-    .project-info {
-        display: flex;
-      align-items: flex-start;
-        flex-direction: column;
-        margin-top: -80px;
-        margin-bottom: 150px;
-    }
-
-    .project-info>p {
-        text-align: center;
-        max-width: 350px;
+    .project-image {
+        height: 240px;        
     }
 }
 

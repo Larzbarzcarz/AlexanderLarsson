@@ -33,7 +33,27 @@ const BlueprintIcon = () => (
 const projectDetailsData = {
     'trashbashers': {
         name: 'TrashBashers',
-        description: ' For this game i developed all the gameplay systems that complimented the game, Timer, Scoring System, Pickups, Menus, endscreen. Also then i assisted on development on boost system that got recharged on the amount of trash you picked up.',
+        description: (
+            <>
+                <p style={{ marginBottom: '20px' }}>
+                    <strong>Role: Gameplay & Systems Programmer</strong><br />
+                    I was responsible for designing and implementing the core gameplay loop and supporting systems for TrashBashers, ensuring a modular and scalable architecture that complemented our environmental theme.
+                </p>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Technical Contributions</h3>
+                <ul style={{ paddingLeft: '20px', marginBottom: '20px', lineHeight: '1.7' }}>
+                    <li><strong>Core Gameplay Loop:</strong> Developed the main game Timer, Scoring System, and the Endscreen sequence, bridging gameplay state management with the UI wrapper.</li>
+                    <li><strong>Theme-Driven Pickups:</strong> Implemented an enemy-drop pickup system for recyclable cans/bottles, utilizing clean destruction methods to support performance.</li>
+                    <li><strong>Boost Mechanics:</strong> Co-developed the dynamic player Boost System, engineering the logic that recalculates and recharges speed gauges based on collected trash data.</li>
+                    <li><strong>State Menus:</strong> Programmed modular and robust UI structures for the Main Menu, Pause Menu, and GameOver screens.</li>
+                </ul>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Challenges & Takeaways</h3>
+                <p style={{ lineHeight: '1.6' }}>
+                    As my first major game project, TrashBashers taught me the importance of clear script communication and separation of concerns. Designing systems like the boost mechanic alongside other programmers sharpened my version control (Perforce) workflow and collaborative problem-solving skills.
+                </p>
+            </>
+        ),
         images: [Trash1,Trash2],
         logo: TrashBashers, 
         language: 'C#',
@@ -49,7 +69,26 @@ const projectDetailsData = {
     },
     'evilution': { 
         name: 'Evilution',
-        description: 'For this game, I was the Lead Programmer. That did code reviews. And directed the code direction. Also i made the Camera swapping system. Did the setup for the animations, Turnbased combat. Touch Controls,',
+         description: (
+            <>
+                <p style={{ marginBottom: '20px' }}>
+                    <strong>Role: Lead Programmer</strong><br />
+                    As the Lead Programmer, I was responsible for conducting code reviews, aligning the programming team's technical direction, and building core systemic foundations for this turn-based mobile title.
+                </p>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Technical Contributions</h3>
+                <ul style={{ paddingLeft: '20px', marginBottom: '20px', lineHeight: '1.7' }}>
+                    <li><strong>Turn-Based Combat Architecture:</strong> Engineered a robust combat system featuring three main interactive state options: Attacking, Defending (incorporating a 33% enemy miss-chance algorithm), and dynamic Inventory Item usage.</li>
+                    <li><strong>Mobile Touch Mechanics:</strong> Programmed responsive screen touch controls tailored for the crafting loop, allowing players to fluidly drag-and-drop ingredients directly into the cauldron/pot.</li>
+                    <li><strong>Animation & Camera Pipeline:</strong> Handled the technical setup and anchoring of character animations for combat transitions, alongside developing the specialized Start Menu camera panning system.</li>
+                </ul>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Leadership & Takeaways</h3>
+                <p style={{ lineHeight: '1.6' }}>
+                    Leading the code development forced me to establish clean guidelines for our repository workflow. Balancing architectural choices for intricate turn-based systems while mentoring team members significantly strengthened my leadership capabilities and project planning skills.
+                </p>
+            </>
+        ),
         images: [Evil1,Evil2,Evil3],
         logo: Evilutions,
         language: 'C#',
@@ -66,7 +105,25 @@ const projectDetailsData = {
     },
     'overbrewed': {
         name: 'OverBrewed',
-        description: 'For this game i was the system designer. Worked on a Dialog system, NPC queue system. And then later on a Potion holder, And a timelapse to make the brewing more animated. ',
+       description: (
+            <>
+                <p style={{ marginBottom: '20px' }}>
+                    <strong>Role: Systems Designer / Blueprints Programmer</strong><br />
+                    For this co-op project, my focus lay heavily on designing system logic and programming visual scripting networks within Unreal Engine to create immersive crafting feedback loops.
+                </p>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Technical Contributions</h3>
+                <ul style={{ paddingLeft: '20px', marginBottom: '20px', lineHeight: '1.7' }}>
+                    <li><strong>Visual Scripting (Blueprints):</strong> Architected the interactive Potion Holder network and engineered a time-lapse script to create visually animated brewing cycles.</li>
+                    <li><strong>Dialogue System Prototyping:</strong> Designed and implemented an NPC dialogue system blueprint that handled dynamic orders, feeding parameters to the player to allow acceptance or denial of specific quests (System later cut/axed during production shifts).</li>
+                </ul>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Challenges & Takeaways</h3>
+                <p style={{ lineHeight: '1.6' }}>
+                    As my first major Unreal Engine title, this project gave me solid, hands-on experience with production methodologies. Handling axed features like the quest-dialogue pipeline taught me to appreciate rapid iterative prototyping and how to quickly pivot systems design to favor core game scopes.
+                </p>
+            </>
+        ),
         images: [Brew1],
         logo: overbrewing,
         language: 'C++',
@@ -87,7 +144,26 @@ const projectDetailsData = {
     },
     'friendoai': {
         name: 'FriendoAi',
-        description: 'i made it around the Guessing system that would check for 2 words. and a memory list that would show you the words you wrote, And give you hints. with a corruption mode where you get shown cursed images you have to guess',
+          description: (
+            <>
+                <p style={{ marginBottom: '20px' }}>
+                    <strong>Role:  Systems Programmer (Game Jam)</strong><br />
+                    Developed during a condensed 1-day timeframe, I engineered the entire back-end logic, game loop parameters, and specialized event sequences for this nostalgic 90s AI training simulator.
+                </p>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Technical Contributions</h3>
+                <ul style={{ paddingLeft: '20px', marginBottom: '20px', lineHeight: '1.7' }}>
+                    <li><strong>Word-Parsing Guessing Loop:</strong> Programmed a string-checking execution script capable of filtering specific arrays of accepted inputs and validating compound 2-word answers.</li>
+                    <li><strong>Dynamic Systems & Hint Log:</strong> Developed a systemic hint manager providing player contextual clues, connected to a historical Memory List that tracks and displays past input attempts.</li>
+                    <li><strong>State Shifts & Cursed Assets:</strong> Engineered a specialized "Corrupted Mode" script managing conditional dialogue triggers, custom screen UI shifts, and a progression-based glitched alternative ending layout.</li>
+                </ul>
+
+                <h3 style={{ color: '#00adb5', fontSize: '1.2rem', marginBottom: '10px' }}>Jam Takeaways</h3>
+                <p style={{ lineHeight: '1.6' }}>
+                    Building complex state machines, text tracking, and secret corrupted visual sequences within a tight 24-hour window greatly heightened my rapid scripting execution and scope compression habits in Unity C#.
+                </p>
+            </>
+        ),
         images: [Friend1,Friend2,Friend3],
         logo: FriendoAI,
         backgroundImage: FriendoBackground,
@@ -100,7 +176,7 @@ const projectDetailsData = {
         engineIcons: [
             { icon: <SiUnity size="28px" color="#ffffff" />, name: 'Unity' }
         ],
-        github: 'https://github.com/detdu/BBP-Game-Jam',
+        github: 'https://pastebin.com/u/LarzBarzCarz/1/XJUKR62n',
         link: 'https://larzko.itch.io/friendoai',
         	
 		
@@ -184,7 +260,7 @@ function ProjectDetail() {
                         Play on Itch.io
                     </a>
                     <a href={project.github} target="_blank" rel="noreferrer" className={style.githubButton}>
-                         Source code
+                         My Code
                     </a>
                 </footer>
             </div>

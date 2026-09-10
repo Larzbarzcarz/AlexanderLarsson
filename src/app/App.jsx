@@ -57,6 +57,13 @@ const videoList = [Video1, Video2, Video3];
 import style from './App.module.css';
 import clsx from 'clsx';
 
+const BlueprintIcon = () => (
+    <div className={style.blueprintSkillIcon}>
+        <span>BP</span>
+    </div>
+);
+
+
 const skills = [
 
 	{
@@ -113,6 +120,12 @@ const tools = [
 		name: 'GitHub',
 		icon: <AiFillGithub size="25px" color="white" />,
 		cssName: "github-tool" 
+	},
+
+	{
+		name: 'Blueprints',
+		icon: <BlueprintIcon />,
+		cssName: "blueprints-skill"
 	}
 ];
 
@@ -121,9 +134,10 @@ const projects = [
 		name: 'TrashBashers',
 		link: 'https://futuregames.itch.io/trash-bashers',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/ZWW2AQ1W',
-		description: 'My very first game project — TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups',
+		description: 'My very first game project,  TrashBashers is a 2.5D game where you are roaming the streets fighting slime and picking up bottles and cans to resycle for power ups',
 		image: TrashBashers,
-		
+		usesPerforce: true,
+		usesGit : false,
 		language: 'C#',
 		year: '2025',
 		duration: '4 Weeks',
@@ -133,8 +147,10 @@ const projects = [
 		name: `Evilution`,
 		link: 'https://futuregames.itch.io/evillution',
 		github: 'https://github.com/Larzbarzcarz/GameProject2PotionCrafting',
-		description: 'Secound game project - With bigger focus on making a phone game.',
+		description: 'Secound game project,  With bigger focus on making a phone game.',
 		image: Evilutions,
+		usesPerforce: false,
+		usesGit : true,
 		language: 'C#',
 		year: '2025',
 		duration: '7 Weeks',
@@ -144,10 +160,12 @@ const projects = [
 		name: 'OverBrewed',
 		link: 'https://futuregames.itch.io/overbrewed',
 		github: 'https://pastebin.com/u/LarzBarzCarz/1/gYz6Dr9t',
-		description: 'Third game project, - But first Unreal engine project. That is a co.op game with a heavy emphasis on communication.',
+		description: 'Third game project,  But first Unreal engine project. That is a co.op game with a heavy emphasis on communication.',
 		image: overbrewing,
 		language: 'C++',
 		hasBlueprints: true,
+		usesPerforce: true,
+		usesGit : false,
 		year: '2026',
 		duration: '8 Weeks',
 		groupSize: 'Group of 14'
@@ -159,6 +177,8 @@ const projects = [
 		description: 'Game jam, That was mostly developed on 1 day. Its a game based on the simple premise of if AI existed in the 90s. You got to train the AI',
 		image: FriendoAI,
 		isSideProject: true,
+		usesPerforce: false,
+		usesGit : true,
 		language: 'C#',
 		year: '2026',
 		duration: '1 Day',
@@ -177,7 +197,8 @@ function MainPortfolio() {
 
 	const handleVideoEnd = () => { setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoList.length); };
 	const [isScrolled, setIsScrolled] = useState(false);
-
+	
+	const [activeFilter, setActiveFilter] = useState(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -395,32 +416,53 @@ I also enjoy breaking down complex systems and sharing knowledge related to the 
 I'm actively looking for <span>Job</span> opportunities where I can apply my skills in <span>C# and C++</span> to contribute to exciting game projects, learn from experienced teams, and grow as an engineer. If you have an opportunity that matches my profile, don't hesitate to <span>contact</span> me.
 
 							</p>
-						</div>
-						<div className={style["my-skill"]}>
-							<h3>My Skills</h3>
-							<div className={style.skills}>
-								{
-									skills.map((skill, index) => {
-										return <div key={`skill${index}`} className={`${style.skill} ${style[skill.cssName]}`}>
-											<div className={style["skill-name"]}>{skill.name}</div>
-											<div className={style["skill-icon"]}>{skill.icon}</div>
-										</div>
-									})
-								}
-							</div>
+					<div className={style.skills}>
+	{
+		skills.map((skill, index) => {
+			const isSelected = activeFilter === skill.name;
+			return <div 
+				key={`skill${index}`} 
+				className={`${style.skill} ${style[skill.cssName]} ${isSelected ? style.activeSkillButton : ''}`}
+				onClick={() => {
+					setActiveFilter(isSelected ? null : skill.name);
+					// SCROLL-LOGIK: Scrollat mjukt till projekt-sektionen vid klick
+					if (!isSelected) {
+						document.getElementById('Projects')?.scrollIntoView({ behavior: 'smooth' });
+					}
+				}}
+				style={{ cursor: 'pointer' }}
+			>
+				<div className={style["skill-name"]}>{skill.name}</div>
+				<div className={style["skill-icon"]}>{skill.icon}</div>
+			</div>
+		})
+	}
+</div>
 							
 							{/* SEKTION FÖR DINA ENGINES & TOOLS */}
-							<h3 className={style.subSkillTitle} style={{ marginTop: '30px' }}>Engines & Tools</h3>
-							<div className={style.skills}>
-								{
-									tools.map((tool, index) => {
-										return <div key={`tool${index}`} className={`${style.skill} ${style[tool.cssName]}`}>
-											<div className={style["skill-name"]}>{tool.name}</div>
-											<div className={style["skill-icon"]}>{tool.icon}</div>
-										</div>
-									})
-								}
-							</div>
+	<h3 className={style.subSkillTitle} style={{ marginTop: '30px' }}>Engines & Tools</h3>
+<div className={style.skills}>
+	{
+		tools.map((tool, index) => {
+			const isSelected = activeFilter === tool.name;
+			return <div 
+				key={`tool${index}`} 
+				className={`${style.skill} ${style[tool.cssName]} ${isSelected ? style.activeSkillButton : ''}`}
+				onClick={() => {
+					setActiveFilter(isSelected ? null : tool.name);
+					// SCROLL-LOGIK: Scrollat mjukt till projekt-sektionen vid klick
+					if (!isSelected) {
+						document.getElementById('Projects')?.scrollIntoView({ behavior: 'smooth' });
+					}
+				}}
+				style={{ cursor: 'pointer' }}
+			>
+				<div className={style["skill-name"]}>{tool.name}</div>
+				<div className={style["skill-icon"]}>{tool.icon}</div>
+			</div>
+		})
+	}
+</div>
 						</div> 
 					</div> 
 				</div> 
@@ -435,47 +477,58 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 							
 						</p>
 					</div>
-					<div className={style["projects-list"]}>
-						{
-							projects.map((project, index) => {
-								return <div key={`project${index}`} className={style.project}>
-									<div className={style["project-image"]}>
-										<img src={project.image} alt="Project Image" />
-									</div>
-								<div className={style["project-info"]}>
-	
-	{/* CONTAINER FOR ALL BADGES */}
-	<div className={style.badgeContainer}>
-		{project.isFirstProject && (
-			<span className={`${style.badge} ${style.firstProject}`}>First Project</span>
-		)}
-		{project.isSideProject && (
-			<span className={`${style.badge} ${style.sideProject}`}>Side Project</span>
-		)}
-		{project.hasBlueprints && (
-			<span className={`${style.badge} ${style.blueprintBadge}`}>Blueprints</span>
-		)}
-		
-		{/* Allmänna data-taggar som varje projekt har */}
-		<span className={`${style.badge} ${style.langBadge}`}>{project.language}</span>
-		<span className={`${style.badge} ${style.metaBadge}`}>{project.year}</span>
-		<span className={`${style.badge} ${style.metaBadge}`}>{project.duration}</span>
-		<span className={`${style.badge} ${style.metaBadge}`}>{project.groupSize}</span>
-	</div>
+	<div className={style["projects-list"]}>
+	{
+		[...projects].sort((a, b) => a.order - b.order).map((project, index) => {
+			
+			// UPPDATERAD LOGIK: Läser av dina egna bool-flaggor direkt från objekten
+			const isMatching = 
+				activeFilter !== null && (
+					project.language === activeFilter ||
+					(activeFilter === "Blueprints" && project.hasBlueprints) ||
+					(activeFilter === "Unity" && project.language === "C#") ||
+					(activeFilter === "Unreal Engine" && project.language === "C++") ||
+					(activeFilter === "Git" && project.usesGit) ||
+					(activeFilter === "GitHub" && project.usesGit) ||
+					(activeFilter === "Perforce" && project.usesPerforce)
+				);
 
-	<Link to={`/project/${project.name.toLowerCase()}`} className={style.projectTitleLink}>
-		{project.name}
-	</Link>
-										<p>{project.description}</p>
-										<div className={style["project-buttons"]}>
-											{/* Om du vill lägga tillbaka dina knappar för Itch/Github här sen, lägg dem i denna div */}
-										</div>
-									</div>
-								</div>
-							})
-						}
-
+			return (
+				<div 
+					key={`project${index}`} 
+					className={`${style.project} ${isMatching ? style.highlightedProject : ''}`}
+				>
+					<div className={style["project-image"]}>
+						<img src={project.image} alt="Project Image" />
 					</div>
+					<div className={style["project-info"]}>
+						<div className={style.badgeContainer}>
+							{project.isFirstProject && <span className={`${style.badge} ${style.firstProject}`}>First Project</span>}
+							{project.isSideProject && <span className={`${style.badge} ${style.sideProject}`}>Side Project</span>}
+							{project.hasBlueprints && <span className={`${style.badge} ${style.blueprintBadge}`}>Blueprints</span>}
+							{project.language && <span className={`${style.badge} ${style.langBadge}`}>{project.language}</span>}
+							
+							{/* EXTRA BONUS: Visar även Git/Perforce som rutor i kortet om du vill! */}
+							{project.usesGit && <span className={`${style.badge} ${style.gitBadge}`}>Git</span>}
+							{project.usesPerforce && <span className={`${style.badge} ${style.p4Badge}`}>Perforce</span>}
+
+							{project.year && <span className={`${style.badge} ${style.metaBadge}`}>{project.year}</span>}
+							{project.duration && <span className={`${style.badge} ${style.metaBadge}`}>{project.duration}</span>}
+							{project.groupSize && <span className={`${style.badge} ${style.metaBadge}`}>{project.groupSize}</span>}
+						</div>
+
+						<Link to={`/project/${project.name.toLowerCase()}`} className={style.projectTitleLink}>
+							{project.name}
+						</Link>
+						<p>{project.description}</p>
+						
+					</div>
+				</div>
+			);
+		})
+	}
+</div>
+
 				</div>
 			</div>
 

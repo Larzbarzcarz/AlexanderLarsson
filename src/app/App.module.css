@@ -188,7 +188,7 @@
 
     .projectTitleLink {
         font-size: 1.8rem;    /* Lite mer lagom rubrikstorlek för mobil */
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .project-info>p {
@@ -858,21 +858,29 @@
 
 .badgeContainer {
     display: flex;
-    flex-wrap: wrap; /* Gör att taggarna bryter ner snyggt till en ny rad om de inte får plats */
-    gap: 6px;
-    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;                  /* Ökat avstånd mellan taggarna */
+    margin-bottom: 16px;       /* Luft ner till rubriken */
+    width: 100%;
 }
 
 .badge {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.75rem !important; /* Lite större text för ökad läsbarhet */
+    font-weight: 700 !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    border: 1px solid transparent;
-    display: inline-block;
-      color: #334155 !important; 
+    padding: 6px 12px !important;  /* Mer luft inuti rutorna så de inte kläms ihop */
+    border-radius: 6px !important;
+    display: inline-block !important;
+    white-space: nowrap;          /* Tvingar texten att hållas på en rad inuti rutan */
+    line-height: 1 !important;
+}
+.projectTitleLink {
+    margin-bottom: 8px;
+}
+
+.project-info > p {
+    margin-bottom: 10px; /* Snyggt avslut i botten av kortet */
 }
 
 .firstProject {
@@ -1276,4 +1284,42 @@
 /* Gör texten vit när man hovrar över boxen */
 .cvIcon:hover .simpleCvBox span {
     color: white;
+}
+.blueprints-skill:hover::after {
+    background-color: #a66200; 
+}
+.blueprintSkillIcon {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+}
+.highlightedProject {
+    background-color: #f5fdfd !important; /* En svag, elegant nyans av din temafärg */
+    border: 2px solid var(--primary-main, #00adb5) !important;
+    transform: translateY(-2px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Stil för när en skill-knapp är aktivt nedtryckt */
+.activeSkillButton {
+    background: var(--primary-main, #00adb5) !important;
+    color: white !important;
+    border-radius: 5px;
+}
+.activeSkillButton .skill-name {
+    color: white !important;
+}
+
+.gitBadge {
+    background-color: #fef2f2 !important;
+    color: #ef4444 !important;
+    border-color: #fee2e2 !important;
+}
+
+/* Perforce-tagg inuti projektkorten (Svag marinblå) */
+.p4Badge {
+    background-color: #f0fdf4 !important;
+    color: #16a34a !important;
+    border-color: #dcfce7 !important;
 }

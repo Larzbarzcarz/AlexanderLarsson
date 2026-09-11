@@ -481,7 +481,7 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 	{
 		[...projects].sort((a, b) => a.order - b.order).map((project, index) => {
 			
-			// UPPDATERAD LOGIK: Läser av dina egna bool-flaggor direkt från objekten
+			// UPPDATERAD LOGIK: Läser av dina egna bool-flaggor direkt från objekten github is being big stupid
 			const isMatching = 
 				activeFilter !== null && (
 					project.language === activeFilter ||

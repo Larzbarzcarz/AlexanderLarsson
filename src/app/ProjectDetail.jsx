@@ -247,7 +247,7 @@ function ProjectDetail() {
                                     src={img} 
                                     alt={`${project.name} screenshot ${index}`} 
                                     className={style.galleryImage}
-                                    onClick={() => setActiveImage(img)} // Öppnar bilden i stort format vid klick
+                                    onClick={() => setActiveImage(img)} // Öppnar bilden i stort format vid klick github har brister
                                     style={{ cursor: 'zoom-in' }} // Ändrar muspekaren till ett förstoringsglas
                                 />
                             ))}

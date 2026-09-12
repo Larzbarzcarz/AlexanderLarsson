@@ -381,7 +381,7 @@ useEffect(() => {
 
 				<div className={style["home-content"]}>
 					<h1> I'm Alexander Larsson</h1>
-					<p>A Game programmer </p>
+					<p>A Game Programmer </p>
 				
 				</div>
 				<div className={style["scroll-icon"]}>
@@ -416,6 +416,10 @@ I also enjoy breaking down complex systems and sharing knowledge related to the 
 I'm actively looking for <span>Job</span> opportunities where I can apply my skills in <span>C# and C++</span> to contribute to exciting game projects, learn from experienced teams, and grow as an engineer. If you have an opportunity that matches my profile, don't hesitate to <span>contact</span> me.
 
 							</p>
+							</div> {/* <-- STÄNGER "about-info" (vänsterkolumnen) */}
+
+							<div className={style["my-skill"]}> {/* <-- ÖPPNAR "my-skill" (högerkolumnen) */}
+    <h3>My Skills</h3>
 					<div className={style.skills}>
 	{
 		skills.map((skill, index) => {
@@ -463,6 +467,7 @@ I'm actively looking for <span>Job</span> opportunities where I can apply my ski
 		})
 	}
 </div>
+
 						</div> 
 					</div> 
 				</div> 
